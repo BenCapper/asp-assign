@@ -47,3 +47,11 @@ Cypress.Commands.add('navFavoriteTv', (query) => {
     cy.get("button[aria-label='add to favorites']").eq(2).click();
     cy.get("button").contains("Favorite TV").click(); 
 });
+
+Cypress.Commands.add('mustWatch', (endpoint) => {
+    cy.get('.MuiAvatar-root').should("not.exist");
+    cy.get("button[aria-label='add to must watch']").eq(0).click();
+    cy.get('.MuiAvatar-root').find("svg").should("exist");
+    cy.get('button').contains("Must Watch").click();
+    cy.url().should("include", endpoint);
+});
