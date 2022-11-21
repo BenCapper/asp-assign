@@ -32,7 +32,6 @@ Cypress.Commands.add('login', (email,pass) => {
     cy.url().should("include", `/movies`)
 });
 
-
 Cypress.Commands.add('imageDetailsCheck', (list) => {
     cy.get('.MuiImageList-root')
     .within(() => {
@@ -41,4 +40,10 @@ Cypress.Commands.add('imageDetailsCheck', (list) => {
         cy.wrap($card).get("img").eq(index).should("have.attr", "src").should("include", list[index].file_path);
       });
     });
+});
+
+Cypress.Commands.add('navFavoriteTv', (query) => {
+    cy.get("button[aria-label='add to favorites']").eq(1).click();
+    cy.get("button[aria-label='add to favorites']").eq(2).click();
+    cy.get("button").contains("Favorite TV").click(); 
 });
