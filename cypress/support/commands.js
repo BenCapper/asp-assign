@@ -31,3 +31,14 @@ Cypress.Commands.add('login', (email,pass) => {
     cy.get(':nth-child(7) > .MuiButtonBase-root').click();
     cy.url().should("include", `/movies`)
 });
+
+
+Cypress.Commands.add('imageDetailsCheck', (list) => {
+    cy.get('.MuiImageList-root')
+    .within(() => {
+      cy.get("li").each(($card, index) => {
+        cy.log(list[index].file_path)
+        cy.wrap($card).get("img").eq(index).should("have.attr", "src").should("include", list[index].file_path);
+      });
+    });
+});
