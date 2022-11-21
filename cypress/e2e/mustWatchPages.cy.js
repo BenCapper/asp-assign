@@ -54,7 +54,6 @@ describe("The Must Watch Tv Feature", () => {
       });
   });
   beforeEach(() => {
-    cy.visit("/");
     cy.login(email,pass);
     cy.visit("/tv/top");
   });
