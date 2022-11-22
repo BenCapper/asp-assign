@@ -41,19 +41,21 @@ This repository contains the implementation of a React App and its associated Cy
 + src/pages/movieReviewPage.js
 + src/pages/tvReviewsPage.js
 
-## Independent learning (If relevant).
+## Independent learning.
 
-I attempted to use Netlify with Gitlab but it wouldn't let me link to a repo there:
+The deployed app can be found here:
+    - https://majestic-longma-7d7b32.netlify.app/
+
+**I attempted to use Netlify with Gitlab but it wouldn't let me link to a repo there:**
 
 ![](./images/norepo.png)
 
-Instead, I had to deploy it from a Github version of the repo:
+**Instead, I had to deploy it from a Github version of the repo:**
 
 ![](./images/repovisible.png)
 
-This deploys automatically when the main branch is pushed to.
+**This deploys automatically when the main branch is pushed to:**
 
 ![](./images/autodeploy.png)
 
-The live app can be found here:
-    - https://majestic-longma-7d7b32.netlify.app/
+
