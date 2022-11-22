@@ -55,3 +55,12 @@ Cypress.Commands.add('mustWatch', (endpoint) => {
     cy.get('button').contains("Must Watch").click();
     cy.url().should("include", endpoint);
 });
+
+Cypress.Commands.add('testSeries', (top) => {
+    cy.get(".MuiCardHeader-root")
+      .within(() => {
+        cy.get("p").each(($card, index) => {
+          cy.wrap($card).contains(top[index].name);
+      });
+    });
+});
