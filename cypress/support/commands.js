@@ -84,3 +84,16 @@ Cypress.Commands.add('typeClick', (query) => {
   cy.get('#outlined-required').type(query, {force: true});
   cy.get('.MuiButton-containedPrimary').click(); 
 });
+
+Cypress.Commands.add('toReviewForm', () => {
+  cy.get("button[aria-label='add to favorites']").eq(1).click();
+  cy.get("button").contains("Favorite Movies").click();
+  cy.get("svg[data-testid='RateReviewIcon']").click();
+});
+
+Cypress.Commands.add('toReviewFormTv', () => {
+  cy.visit("/tv");
+  cy.get("button[aria-label='add to favorites']").eq(1).click();
+  cy.get("button").contains("Favorite TV").click();
+  cy.get("svg[data-testid='RateReviewIcon']").click();
+});
