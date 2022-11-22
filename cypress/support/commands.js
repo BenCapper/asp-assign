@@ -69,3 +69,18 @@ Cypress.Commands.add('appBarCheck', (page, path) => {
   cy.get('.MuiToolbar-root').contains(page).click();
   cy.url().should("include", path);
 });
+
+Cypress.Commands.add('searchPeople', (query,list) => {
+  cy.get('#outlined-required').type(query, {force: true});
+  cy.get('button').contains('People').click();
+  cy.get('.MuiButton-containedPrimary').click();
+  cy.get('h5').each(($card, index) => {
+      cy.log(list[index].name);
+      cy.wrap($card).contains(list[index].name);
+  });
+});
+
+Cypress.Commands.add('typeClick', (query) => {
+  cy.get('#outlined-required').type(query, {force: true});
+  cy.get('.MuiButton-containedPrimary').click(); 
+});
