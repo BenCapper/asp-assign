@@ -64,3 +64,8 @@ Cypress.Commands.add('testSeries', (top) => {
       });
     });
 });
+
+Cypress.Commands.add('appBarCheck', (page, path) => {
+  cy.get('.MuiToolbar-root').contains(page).click();
+  cy.url().should("include", path);
+});
