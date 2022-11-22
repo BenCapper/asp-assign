@@ -97,3 +97,13 @@ Cypress.Commands.add('toReviewFormTv', () => {
   cy.get("button").contains("Favorite TV").click();
   cy.get("svg[data-testid='RateReviewIcon']").click();
 });
+
+Cypress.Commands.add('openReviews', () => {
+  cy.get('.MuiFab-root').click();
+  cy.get('.MuiDrawer-root').should('be.visible');
+});
+
+Cypress.Commands.add('openFullReview', () => {
+  cy.openReviews();
+  cy.get(':nth-child(1) > :nth-child(3) > a').click();
+});
